@@ -23,13 +23,13 @@
 ## 任务0: 验证依赖服务存在
 
 **Files:**
-- Read: `PostureOverlayApp/Models/OverlayState.cs`
-- Read: `PostureOverlayApp/Services/BlurController.cs`
+- Read: `SitRight/Models/OverlayState.cs`
+- Read: `SitRight/Services/BlurController.cs`
 
 **Step 1: 验证项目编译**
 
 ```bash
-cd PostureOverlayApp
+cd SitRight
 dotnet build
 ```
 Expected: BUILD SUCCEEDED
@@ -39,8 +39,8 @@ Expected: BUILD SUCCEEDED
 ## 任务1: OverlayViewModel 视图模型
 
 **Files:**
-- Create: `PostureOverlayApp/ViewModels/OverlayViewModel.cs`
-- Create: `PostureOverlayApp/ViewModels/OverlayViewModelTests.cs`
+- Create: `SitRight/ViewModels/OverlayViewModel.cs`
+- Create: `SitRight/ViewModels/OverlayViewModelTests.cs`
 
 **对应完整计划章节:** 第8章 Overlay设计
 
@@ -48,10 +48,10 @@ Expected: BUILD SUCCEEDED
 
 ```csharp
 using Xunit;
-using PostureOverlayApp.Models;
-using PostureOverlayApp.ViewModels;
+using SitRight.Models;
+using SitRight.ViewModels;
 
-namespace PostureOverlayApp.ViewModels;
+namespace SitRight.ViewModels;
 
 public class OverlayViewModelTests
 {
@@ -144,7 +144,7 @@ public class OverlayViewModelTests
 **Step 2: 运行测试（RED）**
 
 ```bash
-cd PostureOverlayApp
+cd SitRight
 dotnet test --filter "FullyQualifiedName~OverlayViewModelTests"
 ```
 Expected: FAIL - OverlayViewModel not found
@@ -154,9 +154,9 @@ Expected: FAIL - OverlayViewModel not found
 ```csharp
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using PostureOverlayApp.Models;
+using SitRight.Models;
 
-namespace PostureOverlayApp.ViewModels;
+namespace SitRight.ViewModels;
 
 /// <summary>
 /// OverlayViewModel：绑定 OverlayWindow 的视觉属性
@@ -249,7 +249,7 @@ Expected: PASS
 **Step 5: 提交**
 
 ```bash
-git add PostureOverlayApp/ViewModels/OverlayViewModel.cs PostureOverlayApp/ViewModels/OverlayViewModelTests.cs
+git add SitRight/ViewModels/OverlayViewModel.cs SitRight/ViewModels/OverlayViewModelTests.cs
 git commit -m "feat: 实现 OverlayViewModel (TDD)"
 ```
 
@@ -258,15 +258,15 @@ git commit -m "feat: 实现 OverlayViewModel (TDD)"
 ## 任务2: OverlayWindow 全屏遮罩窗口
 
 **Files:**
-- Create: `PostureOverlayApp/OverlayWindow.xaml`
-- Create: `PostureOverlayApp/OverlayWindow.xaml.cs`
+- Create: `SitRight/OverlayWindow.xaml`
+- Create: `SitRight/OverlayWindow.xaml.cs`
 
 **对应完整计划章节:** 第8章 Overlay设计
 
 **Step 1: 创建 OverlayWindow.xaml**
 
 ```xml
-<Window x:Class="PostureOverlayApp.OverlayWindow"
+<Window x:Class="SitRight.OverlayWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Overlay"
@@ -348,9 +348,9 @@ git commit -m "feat: 实现 OverlayViewModel (TDD)"
 ```csharp
 using System.Windows;
 using System.Windows.Media;
-using PostureOverlayApp.Models;
+using SitRight.Models;
 
-namespace PostureOverlayApp;
+namespace SitRight;
 
 /// <summary>
 /// OverlayWindow：全屏遮罩窗口，对应第8章 Overlay 设计
@@ -464,7 +464,7 @@ public partial class OverlayWindow : Window
 **Step 3: 验证编译**
 
 ```bash
-cd PostureOverlayApp
+cd SitRight
 dotnet build
 ```
 Expected: BUILD SUCCEEDED
@@ -472,7 +472,7 @@ Expected: BUILD SUCCEEDED
 **Step 4: 提交**
 
 ```bash
-git add PostureOverlayApp/OverlayWindow.xaml PostureOverlayApp/OverlayWindow.xaml.cs
+git add SitRight/OverlayWindow.xaml SitRight/OverlayWindow.xaml.cs
 git commit -m "feat: 实现 OverlayWindow 全屏遮罩窗口"
 ```
 
@@ -481,8 +481,8 @@ git commit -m "feat: 实现 OverlayWindow 全屏遮罩窗口"
 ## 任务3: MainViewModel 主视图模型
 
 **Files:**
-- Create: `PostureOverlayApp/ViewModels/MainViewModel.cs`
-- Create: `PostureOverlayApp/ViewModels/MainViewModelTests.cs`
+- Create: `SitRight/ViewModels/MainViewModel.cs`
+- Create: `SitRight/ViewModels/MainViewModelTests.cs`
 
 **对应完整计划章节:** 第9章 主控制窗口设计
 
@@ -491,11 +491,11 @@ git commit -m "feat: 实现 OverlayWindow 全屏遮罩窗口"
 ```csharp
 using Xunit;
 using Moq;
-using PostureOverlayApp.Services;
-using PostureOverlayApp.Models;
-using PostureOverlayApp.ViewModels;
+using SitRight.Services;
+using SitRight.Models;
+using SitRight.ViewModels;
 
-namespace PostureOverlayApp.ViewModels;
+namespace SitRight.ViewModels;
 
 public class MainViewModelTests
 {
@@ -637,7 +637,7 @@ Expected: FAIL - MainViewModel not found
 ```
 
 ```bash
-cd PostureOverlayApp
+cd SitRight
 dotnet add package Moq --version 4.20.70
 ```
 
@@ -646,10 +646,10 @@ dotnet add package Moq --version 4.20.70
 ```csharp
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using PostureOverlayApp.Models;
-using PostureOverlayApp.Services;
+using SitRight.Models;
+using SitRight.Services;
 
-namespace PostureOverlayApp.ViewModels;
+namespace SitRight.ViewModels;
 
 /// <summary>
 /// MainViewModel：整合所有服务，提供 MainWindow 数据绑定
@@ -818,7 +818,7 @@ Expected: PASS
 **Step 6: 提交**
 
 ```bash
-git add PostureOverlayApp/ViewModels/MainViewModel.cs PostureOverlayApp/ViewModels/MainViewModelTests.cs
+git add SitRight/ViewModels/MainViewModel.cs SitRight/ViewModels/MainViewModelTests.cs
 git commit -m "feat: 实现 MainViewModel (TDD)"
 ```
 
@@ -827,19 +827,19 @@ git commit -m "feat: 实现 MainViewModel (TDD)"
 ## 任务4: 集成到 MainWindow
 
 **Files:**
-- Modify: `PostureOverlayApp/MainWindow.xaml.cs`
-- Modify: `PostureOverlayApp/MainWindow.xaml`
+- Modify: `SitRight/MainWindow.xaml.cs`
+- Modify: `SitRight/MainWindow.xaml`
 
 **Step 1: 重构 MainWindow 使用 MainViewModel**
 
 ```csharp
 using System.Windows;
 using System.Windows.Threading;
-using PostureOverlayApp.Services;
-using PostureOverlayApp.Models;
-using PostureOverlayApp.ViewModels;
+using SitRight.Services;
+using SitRight.Models;
+using SitRight.ViewModels;
 
-namespace PostureOverlayApp;
+namespace SitRight;
 
 public partial class MainWindow : Window
 {
@@ -980,7 +980,7 @@ public partial class MainWindow : Window
 **Step 2: 验证编译**
 
 ```bash
-cd PostureOverlayApp
+cd SitRight
 dotnet build
 ```
 Expected: BUILD SUCCEEDED
@@ -988,7 +988,7 @@ Expected: BUILD SUCCEEDED
 **Step 3: 提交**
 
 ```bash
-git add PostureOverlayApp/MainWindow.xaml.cs
+git add SitRight/MainWindow.xaml.cs
 git commit -m "feat: 重构 MainWindow 使用 MainViewModel"
 ```
 
@@ -997,17 +997,17 @@ git commit -m "feat: 重构 MainWindow 使用 MainViewModel"
 ## 任务5: 端到端集成测试
 
 **Files:**
-- Create: `PostureOverlayApp/IntegrationTests.cs`
+- Create: `SitRight/IntegrationTests.cs`
 
 **Step 1: 编写集成测试**
 
 ```csharp
 using Xunit;
-using PostureOverlayApp.Models;
-using PostureOverlayApp.Services;
-using PostureOverlayApp.ViewModels;
+using SitRight.Models;
+using SitRight.Services;
+using SitRight.ViewModels;
 
-namespace PostureOverlayApp;
+namespace SitRight;
 
 public class IntegrationTests
 {
@@ -1103,7 +1103,7 @@ Expected: PASS
 **Step 3: 提交**
 
 ```bash
-git add PostureOverlayApp/IntegrationTests.cs
+git add SitRight/IntegrationTests.cs
 git commit -m "test: 添加端到端集成测试"
 ```
 
@@ -1125,7 +1125,7 @@ git commit -m "test: 添加端到端集成测试"
 
 **完整系统架构（对应文档第4章目录结构）：**
 ```
-PostureOverlayApp/
+SitRight/
 ├─ App.xaml / App.xaml.cs
 ├─ MainWindow.xaml / MainWindow.xaml.cs      ← 重构后整合所有服务
 ├─ OverlayWindow.xaml / OverlayWindow.xaml.cs ← 任务D新增

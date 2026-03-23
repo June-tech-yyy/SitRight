@@ -20,7 +20,7 @@
 ## 任务0: 依赖准备
 
 **Files:**
-- Modify: `PostureOverlayApp/PostureOverlayApp.csproj`
+- Modify: `SitRight/SitRight.csproj`
 
 **Step 1: 添加 System.IO.Ports 依赖**
 
@@ -47,7 +47,7 @@
 **Step 2: 还原包并验证编译**
 
 ```bash
-cd PostureOverlayApp
+cd SitRight
 dotnet restore
 dotnet build
 ```
@@ -56,7 +56,7 @@ Expected: BUILD SUCCEEDED
 **Step 3: 提交**
 
 ```bash
-git add PostureOverlayApp/PostureOverlayApp.csproj
+git add SitRight/SitRight.csproj
 git commit -m "chore: 添加 System.IO.Ports 依赖"
 ```
 
@@ -65,16 +65,16 @@ git commit -m "chore: 添加 System.IO.Ports 依赖"
 ## 任务1: DeviceProtocol 协议解析
 
 **Files:**
-- Create: `PostureOverlayApp/Services/DeviceProtocol.cs`
-- Create: `PostureOverlayApp/Services/DeviceProtocolTests.cs`
+- Create: `SitRight/Services/DeviceProtocol.cs`
+- Create: `SitRight/Services/DeviceProtocolTests.cs`
 
 **TDD Step 1: 编写测试（RED）**
 
 ```csharp
 using Xunit;
-using PostureOverlayApp.Services;
+using SitRight.Services;
 
-namespace PostureOverlayApp.Services;
+namespace SitRight.Services;
 
 public class DeviceProtocolTests
 {
@@ -119,7 +119,7 @@ public class DeviceProtocolTests
 **Step 2: 运行测试验证失败（RED）**
 
 ```bash
-cd PostureOverlayApp
+cd SitRight
 dotnet test --filter "FullyQualifiedName~DeviceProtocolTests"
 ```
 Expected: FAIL - DeviceProtocol not found
@@ -127,7 +127,7 @@ Expected: FAIL - DeviceProtocol not found
 **TDD Step 3: 实现 DeviceProtocol（GREEN）**
 
 ```csharp
-namespace PostureOverlayApp.Services;
+namespace SitRight.Services;
 
 public class DeviceProtocol
 {
@@ -168,7 +168,7 @@ Expected: PASS
 **Step 5: 提交**
 
 ```bash
-git add PostureOverlayApp/Services/DeviceProtocol.cs PostureOverlayApp/Services/DeviceProtocolTests.cs
+git add SitRight/Services/DeviceProtocol.cs SitRight/Services/DeviceProtocolTests.cs
 git commit -m "feat: 实现 DeviceProtocol 协议解析 (TDD)"
 ```
 
@@ -177,16 +177,16 @@ git commit -m "feat: 实现 DeviceProtocol 协议解析 (TDD)"
 ## 任务2: SerialService 串口服务
 
 **Files:**
-- Create: `PostureOverlayApp/Services/ISerialService.cs`
-- Create: `PostureOverlayApp/Services/SerialService.cs`
-- Create: `PostureOverlayApp/Services/SerialServiceTests.cs`
+- Create: `SitRight/Services/ISerialService.cs`
+- Create: `SitRight/Services/SerialService.cs`
+- Create: `SitRight/Services/SerialServiceTests.cs`
 
 **TDD Step 1: 编写接口测试（RED）**
 
 ```csharp
 using Xunit;
 
-namespace PostureOverlayApp.Services;
+namespace SitRight.Services;
 
 public class ISerialServiceTests
 {
@@ -221,7 +221,7 @@ Expected: FAIL - ISerialService not found
 **TDD Step 3: 实现 ISerialService 接口（GREEN）**
 
 ```csharp
-namespace PostureOverlayApp.Services;
+namespace SitRight.Services;
 
 public interface ISerialService : IDisposable
 {
@@ -250,7 +250,7 @@ Expected: PASS
 ```csharp
 using Xunit;
 
-namespace PostureOverlayApp.Services;
+namespace SitRight.Services;
 
 public class SerialServiceTests
 {
@@ -303,7 +303,7 @@ Expected: FAIL - SerialService not found
 using System.IO.Ports;
 using System.Text;
 
-namespace PostureOverlayApp.Services;
+namespace SitRight.Services;
 
 /// <summary>
 /// 串口服务：负责打开串口、接收数据、按行分割、异常处理
@@ -414,7 +414,7 @@ Expected: PASS
 **Step 9: 提交**
 
 ```bash
-git add PostureOverlayApp/Services/ISerialService.cs PostureOverlayApp/Services/SerialService.cs PostureOverlayApp/Services/SerialServiceTests.cs
+git add SitRight/Services/ISerialService.cs SitRight/Services/SerialService.cs SitRight/Services/SerialServiceTests.cs
 git commit -m "feat: 实现 SerialService 串口服务 (TDD)"
 ```
 
@@ -423,8 +423,8 @@ git commit -m "feat: 实现 SerialService 串口服务 (TDD)"
 ## 任务3: DeviceStateManager 设备状态机
 
 **Files:**
-- Create: `PostureOverlayApp/Services/DeviceStateManager.cs`
-- Create: `PostureOverlayApp/Services/DeviceStateManagerTests.cs`
+- Create: `SitRight/Services/DeviceStateManager.cs`
+- Create: `SitRight/Services/DeviceStateManagerTests.cs`
 
 **对应完整计划章节:** 第7章 设备状态机设计
 
@@ -432,10 +432,10 @@ git commit -m "feat: 实现 SerialService 串口服务 (TDD)"
 
 ```csharp
 using Xunit;
-using PostureOverlayApp.Services;
-using PostureOverlayApp.Models;
+using SitRight.Services;
+using SitRight.Models;
 
-namespace PostureOverlayApp.Services;
+namespace SitRight.Services;
 
 public class DeviceStateManagerTests
 {
@@ -539,9 +539,9 @@ Expected: FAIL - DeviceStateManager not found
 **TDD Step 3: 实现 DeviceStateManager（GREEN）**
 
 ```csharp
-using PostureOverlayApp.Models;
+using SitRight.Models;
 
-namespace PostureOverlayApp.Services;
+namespace SitRight.Services;
 
 /// <summary>
 /// 设备状态管理器：实现第7章定义的设备状态机
@@ -688,7 +688,7 @@ Expected: PASS
 **Step 5: 提交**
 
 ```bash
-git add PostureOverlayApp/Services/DeviceStateManager.cs PostureOverlayApp/Services/DeviceStateManagerTests.cs
+git add SitRight/Services/DeviceStateManager.cs SitRight/Services/DeviceStateManagerTests.cs
 git commit -m "feat: 实现 DeviceStateManager 设备状态机 (TDD)"
 ```
 
@@ -697,7 +697,7 @@ git commit -m "feat: 实现 DeviceStateManager 设备状态机 (TDD)"
 ## 任务4: 集成到 MainWindow（占位符）
 
 **Files:**
-- Modify: `PostureOverlayApp/MainWindow.xaml.cs`
+- Modify: `SitRight/MainWindow.xaml.cs`
 
 **说明:** 此任务在任务B中进行基础集成，后续由任务C和任务D完善
 
@@ -705,10 +705,10 @@ git commit -m "feat: 实现 DeviceStateManager 设备状态机 (TDD)"
 
 ```csharp
 using System.Windows;
-using PostureOverlayApp.Services;
-using PostureOverlayApp.Models;
+using SitRight.Services;
+using SitRight.Models;
 
-namespace PostureOverlayApp;
+namespace SitRight;
 
 public partial class MainWindow : Window
 {
@@ -758,7 +758,7 @@ public partial class MainWindow : Window
 **Step 2: 验证编译**
 
 ```bash
-cd PostureOverlayApp
+cd SitRight
 dotnet build
 ```
 Expected: BUILD SUCCEEDED
@@ -766,7 +766,7 @@ Expected: BUILD SUCCEEDED
 **Step 3: 提交**
 
 ```bash
-git add PostureOverlayApp/MainWindow.xaml.cs
+git add SitRight/MainWindow.xaml.cs
 git commit -m "feat: 集成串口服务到 MainWindow"
 ```
 
