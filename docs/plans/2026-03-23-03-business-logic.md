@@ -23,13 +23,13 @@
 ## 任务0: 验证 Model 类存在
 
 **Files:**
-- Read: `PostureOverlayApp/Models/OverlayState.cs`
-- Read: `PostureOverlayApp/Models/AppConfig.cs`
+- Read: `SitRight/Models/OverlayState.cs`
+- Read: `SitRight/Models/AppConfig.cs`
 
 **Step 1: 验证项目结构**
 
 ```bash
-cd PostureOverlayApp
+cd SitRight
 dotnet build
 ```
 Expected: BUILD SUCCEEDED
@@ -45,8 +45,8 @@ git commit -m "chore: 验证 Model 类可用"
 ## 任务1: BlurController 平滑控制器
 
 **Files:**
-- Create: `PostureOverlayApp/Services/BlurController.cs`
-- Create: `PostureOverlayApp/Services/BlurControllerTests.cs`
+- Create: `SitRight/Services/BlurController.cs`
+- Create: `SitRight/Services/BlurControllerTests.cs`
 
 **对应完整计划章节:** 第5章 核心数据流、第11章 BlurController 说明、第12章 推荐参数默认值
 
@@ -54,9 +54,9 @@ git commit -m "chore: 验证 Model 类可用"
 
 ```csharp
 using Xunit;
-using PostureOverlayApp.Services;
+using SitRight.Services;
 
-namespace PostureOverlayApp.Services;
+namespace SitRight.Services;
 
 public class BlurControllerTests
 {
@@ -188,7 +188,7 @@ public class BlurControllerTests
 **Step 2: 运行测试（RED）**
 
 ```bash
-cd PostureOverlayApp
+cd SitRight
 dotnet test --filter "FullyQualifiedName~BlurControllerTests"
 ```
 Expected: FAIL - BlurController not found
@@ -196,7 +196,7 @@ Expected: FAIL - BlurController not found
 **TDD Step 3: 实现 BlurController（GREEN）**
 
 ```csharp
-namespace PostureOverlayApp.Services;
+namespace SitRight.Services;
 
 /// <summary>
 /// BlurController：第5章核心数据流、第11章关键模块说明
@@ -287,7 +287,7 @@ Expected: PASS
 **Step 5: 提交**
 
 ```bash
-git add PostureOverlayApp/Services/BlurController.cs PostureOverlayApp/Services/BlurControllerTests.cs
+git add SitRight/Services/BlurController.cs SitRight/Services/BlurControllerTests.cs
 git commit -m "feat: 实现 BlurController 平滑控制器 (TDD)"
 ```
 
@@ -296,8 +296,8 @@ git commit -m "feat: 实现 BlurController 平滑控制器 (TDD)"
 ## 任务2: ValueMapper 数值映射器
 
 **Files:**
-- Create: `PostureOverlayApp/Services/ValueMapper.cs`
-- Create: `PostureOverlayApp/Services/ValueMapperTests.cs`
+- Create: `SitRight/Services/ValueMapper.cs`
+- Create: `SitRight/Services/ValueMapperTests.cs`
 
 **对应完整计划章节:** 第8章 Overlay设计、第11章 ValueMapper说明
 
@@ -305,10 +305,10 @@ git commit -m "feat: 实现 BlurController 平滑控制器 (TDD)"
 
 ```csharp
 using Xunit;
-using PostureOverlayApp.Models;
-using PostureOverlayApp.Services;
+using SitRight.Models;
+using SitRight.Services;
 
-namespace PostureOverlayApp.Services;
+namespace SitRight.Services;
 
 public class ValueMapperTests
 {
@@ -419,9 +419,9 @@ Expected: FAIL - ValueMapper not found
 **TDD Step 3: 实现 ValueMapper（GREEN）**
 
 ```csharp
-using PostureOverlayApp.Models;
+using SitRight.Models;
 
-namespace PostureOverlayApp.Services;
+namespace SitRight.Services;
 
 /// <summary>
 /// ValueMapper：将 DisplayLevel 映射为 OverlayState 视觉参数
@@ -460,7 +460,7 @@ Expected: PASS
 **Step 5: 提交**
 
 ```bash
-git add PostureOverlayApp/Services/ValueMapper.cs PostureOverlayApp/Services/ValueMapperTests.cs
+git add SitRight/Services/ValueMapper.cs SitRight/Services/ValueMapperTests.cs
 git commit -m "feat: 实现 ValueMapper 数值映射器 (TDD)"
 ```
 
@@ -469,9 +469,9 @@ git commit -m "feat: 实现 ValueMapper 数值映射器 (TDD)"
 ## 任务3: ConfigService 配置服务
 
 **Files:**
-- Create: `PostureOverlayApp/Services/ConfigService.cs`
-- Create: `PostureOverlayApp/Services/ConfigServiceTests.cs`
-- Create: `PostureOverlayApp/config.json`
+- Create: `SitRight/Services/ConfigService.cs`
+- Create: `SitRight/Services/ConfigServiceTests.cs`
+- Create: `SitRight/config.json`
 
 **对应完整计划章节:** 第16章 配置与可扩展性
 
@@ -479,11 +479,11 @@ git commit -m "feat: 实现 ValueMapper 数值映射器 (TDD)"
 
 ```csharp
 using Xunit;
-using PostureOverlayApp.Services;
-using PostureOverlayApp.Models;
+using SitRight.Services;
+using SitRight.Models;
 using System.IO;
 
-namespace PostureOverlayApp.Services;
+namespace SitRight.Services;
 
 public class ConfigServiceTests : IDisposable
 {
@@ -583,9 +583,9 @@ Expected: FAIL - ConfigService not found
 ```csharp
 using System.IO;
 using System.Text.Json;
-using PostureOverlayApp.Models;
+using SitRight.Models;
 
-namespace PostureOverlayApp.Services;
+namespace SitRight.Services;
 
 /// <summary>
 /// 配置服务：负责 JSON 配置文件的读写
@@ -673,7 +673,7 @@ Expected: PASS
 **Step 6: 提交**
 
 ```bash
-git add PostureOverlayApp/Services/ConfigService.cs PostureOverlayApp/Services/ConfigServiceTests.cs PostureOverlayApp/config.json
+git add SitRight/Services/ConfigService.cs SitRight/Services/ConfigServiceTests.cs SitRight/config.json
 git commit -m "feat: 实现 ConfigService 配置服务 (TDD)"
 ```
 
@@ -682,17 +682,17 @@ git commit -m "feat: 实现 ConfigService 配置服务 (TDD)"
 ## 任务4: 集成到 MainWindow
 
 **Files:**
-- Modify: `PostureOverlayApp/MainWindow.xaml.cs`
+- Modify: `SitRight/MainWindow.xaml.cs`
 
 **Step 1: 添加 BlurController 和 ValueMapper 集成（GREEN）**
 
 ```csharp
 using System.Windows;
 using System.Windows.Threading;
-using PostureOverlayApp.Services;
-using PostureOverlayApp.Models;
+using SitRight.Services;
+using SitRight.Models;
 
-namespace PostureOverlayApp;
+namespace SitRight;
 
 public partial class MainWindow : Window
 {
@@ -848,7 +848,7 @@ public partial class MainWindow : Window
 **Step 2: 验证编译**
 
 ```bash
-cd PostureOverlayApp
+cd SitRight
 dotnet build
 ```
 Expected: BUILD SUCCEEDED
@@ -856,7 +856,7 @@ Expected: BUILD SUCCEEDED
 **Step 3: 提交**
 
 ```bash
-git add PostureOverlayApp/MainWindow.xaml.cs
+git add SitRight/MainWindow.xaml.cs
 git commit -m "feat: 集成 BlurController 和 ValueMapper 到 MainWindow"
 ```
 
