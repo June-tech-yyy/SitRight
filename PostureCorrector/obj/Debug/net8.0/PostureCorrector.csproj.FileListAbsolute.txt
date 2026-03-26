@@ -1,0 +1,14 @@
+C:\Users\nie\OneDrive\Desktop\PostureCorrector\obj\Debug\net8.0\PostureCorrector.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nie\OneDrive\Desktop\PostureCorrector\obj\Debug\net8.0\PostureCorrector.AssemblyInfoInputs.cache
+C:\Users\nie\OneDrive\Desktop\PostureCorrector\obj\Debug\net8.0\PostureCorrector.AssemblyInfo.cs
+C:\Users\nie\OneDrive\Desktop\PostureCorrector\obj\Debug\net8.0\PostureCorrector.csproj.CoreCompileInputs.cache
+C:\Users\nie\OneDrive\Desktop\PostureCorrector\bin\Debug\net8.0\PostureCorrector.exe
+C:\Users\nie\OneDrive\Desktop\PostureCorrector\bin\Debug\net8.0\PostureCorrector.deps.json
+C:\Users\nie\OneDrive\Desktop\PostureCorrector\bin\Debug\net8.0\PostureCorrector.runtimeconfig.json
+C:\Users\nie\OneDrive\Desktop\PostureCorrector\bin\Debug\net8.0\PostureCorrector.dll
+C:\Users\nie\OneDrive\Desktop\PostureCorrector\bin\Debug\net8.0\PostureCorrector.pdb
+C:\Users\nie\OneDrive\Desktop\PostureCorrector\obj\Debug\net8.0\PostureCorrector.dll
+C:\Users\nie\OneDrive\Desktop\PostureCorrector\obj\Debug\net8.0\refint\PostureCorrector.dll
+C:\Users\nie\OneDrive\Desktop\PostureCorrector\obj\Debug\net8.0\PostureCorrector.pdb
+C:\Users\nie\OneDrive\Desktop\PostureCorrector\obj\Debug\net8.0\PostureCorrector.genruntimeconfig.cache
+C:\Users\nie\OneDrive\Desktop\PostureCorrector\obj\Debug\net8.0\ref\PostureCorrector.dll

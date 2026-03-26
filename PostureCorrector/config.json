@@ -1,0 +1,8 @@
+{
+  "SmoothingFactor": 0.18,
+  "HintStartLevel": 30,
+  "UrgentLevel": 60,
+  "NormalBlur": 0.0,
+  "HintBlur": 0.4,
+  "UrgentBlur": 0.85
+}
