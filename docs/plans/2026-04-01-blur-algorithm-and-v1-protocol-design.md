@@ -96,6 +96,8 @@
 
 ## 5. 第一版串口协议与开关约束
 
+串口协议为**双通道**设计：运行态数据和校准回包共享同一串口，上位机通过行首前缀区分。
+
 ### 5.1 运行态协议
 
 固定：
@@ -112,14 +114,28 @@
 100
 ```
 
-### 5.2 编译开关建议
+### 5.2 校准回包协议
+
+校准回包以 `ACK:` 或 `ERR:` 开头，始终输出，不受编译开关控制：
+
+```txt
+ACK:SET_NORMAL,ANGLE:12.34\n
+ACK:SET_SLOUCH,ANGLE:25.67\n
+ERR:BUSY\n
+ERR:UNKNOWN_CMD\n
+```
+
+详见 `docs/plans/2026-04-01-serial-calibration-design.md`。
+
+### 5.3 编译开关建议
 
 - `OUTPUT_MODE_BLUR`（默认）
 - `OUTPUT_MODE_ANGLE`（实验）
 - `DEBUG_SERIAL`（默认关闭）
 
 约束：
-- 当 `DEBUG_SERIAL=0` 时，禁止任何非协议文本输出。
+- 当 `DEBUG_SERIAL=0` 时，禁止任何调试文本输出。
+- ACK/ERR 回包不属于调试文本，不受此开关影响。
 
 ## 6. 上位机严格解析与容错
 

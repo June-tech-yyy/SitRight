@@ -68,14 +68,16 @@
 
 说明：以换行结尾，设备按行解析。
 
-### 4.2 成功回包（设备 -> 上位机）
+### 4.2 成功回包（设备 -> 上位机，始终输出）
 
 - `ACK:SET_NORMAL,ANGLE:<avgAngle>`
 - `ACK:SET_SLOUCH,ANGLE:<avgAngle>`
 
+注意：ACK 回包是协议的一部分，**不受 `DEBUG_SERIAL` 编译开关控制**，始终通过串口发送。
+
 建议：`<avgAngle>` 固定两位小数。
 
-### 4.3 失败回包（设备 -> 上位机）
+### 4.3 失败回包（设备 -> 上位机，始终输出）
 
 - `ERR:UNKNOWN_CMD`
 - `ERR:CALIBRATE_TIMEOUT`
