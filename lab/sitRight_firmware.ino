@@ -298,22 +298,18 @@ void processCommand(const char* cmd) {
 
 // ==================== 协议回包 ====================
 
-// 发送成功回包
+// 发送成功回包（协议回包，始终输出）
 void sendAck(const char* cmdType, float angle) {
-#if DEBUG_SERIAL
   Serial.print("ACK:");
   Serial.print(cmdType);
   Serial.print(",ANGLE:");
   Serial.println(angle, 2); // 两位小数
-#endif
 }
 
-// 发送错误回包
+// 发送错误回包（协议回包，始终输出）
 void sendErr(const char* errCode) {
-#if DEBUG_SERIAL
   Serial.print("ERR:");
   Serial.println(errCode);
-#endif
 }
 
 // ==================== 辅助函数 ====================
